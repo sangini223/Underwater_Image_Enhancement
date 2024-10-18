@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Image</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #00796b;
+            margin-top: 20px;
+        }
+        div {
+            margin: 20px;
+            border: 2px solid #00796b;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            max-width: 80%;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #004d40;
+        }
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Original and Enhanced Images</h1>
+    <div>
+        <h2>Original Image</h2>
+        <img src="{{ url_for('static', filename='uploads/' + input_image) }}" alt="Original Image">
+    </div>
+    <div>
+        <h2>Enhanced Image</h2>
+        <img src="{{ url_for('static', filename='enhanced/' + enhanced_image) }}" alt="Enhanced Image">
+    </div>
+    <div class="back-button">
+        <button onclick="window.history.back()">Go Back</button>
+        <a href="{{ url_for('static', filename='enhanced/' + enhanced_image) }}" download>
+            <button>Download Enhanced Image</button>
+        </a>
+    </div>
+</body>
+</html>
